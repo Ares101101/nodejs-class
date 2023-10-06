@@ -1,13 +1,14 @@
-const fs = require('fs');
-console.log('leyendo el primer archivo');
+const fs = require('fs')
+console.log('leyendo el primer archivo')
 
-fs.readFile('./archivo.txt', 'utf-8',(error, text )=>{
-    console.log('primer texto', text);
-});
+fs.readFile('./archivo.txt', 'utf-8', (_error, text) => {
+  console.log('primer texto', text)
+})
 
-console.log('-----------> hacer cosas mientras <----------');
+console.log('-----------> hacer cosas mientras <----------')
 
-console.log('leyendo el segundo archivo');
+console.log('leyendo el segundo archivo')
 
-fs.readFile('./archivo2.txt', 'utf-8',(error, text )=>{
-    console.log('segundo texto', text);});
+fs.readFile('./archivo2.txt', 'utf-8', (_error, text) => {
+  console.log('segundo texto', text)
+})
