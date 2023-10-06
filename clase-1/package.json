@@ -1,0 +1,33 @@
+{
+  "name": "curso-node",
+  "version": "1.0.0",
+  "description": "curso de node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ares101101/nodejs-class.git"
+  },
+  "keywords": [
+    "curso",
+    "nodejs",
+    "ares"
+  ],
+  "author": "Diego",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ares101101/nodejs-class/issues"
+  },
+  "homepage": "https://github.com/Ares101101/nodejs-class#readme",
+  "dependencies": {
+    "picocolors": "1.0.0"
+  },
+  "devDependencies": {
+    "standard": "17.1.0"
+  },
+  "eslintConfig": {
+    "extends": "standard"
+  }
+}
