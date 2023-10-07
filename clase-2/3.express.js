@@ -4,12 +4,10 @@ const app = express()
 
 app.disable('x-powered-by')
 
-const PORT = process.env.PORT ?? 3000
+app.use((req, res, next) => {
+  if (req.method !== 'POST') return next()
+  if (req.headers['content-type'] !== 'application/json') return next()
 
-app.get('/pokemon/ditto', (req, res) => {
-  res.json(ditto)
-})
-app.post('/pokemon', (req, res) => {
   let body = ''
   // escuchar el evento data
   req.on('data', chunk => {
@@ -19,8 +17,19 @@ app.post('/pokemon', (req, res) => {
   req.on('end', () => {
     const data = JSON.parse(body)
     data.timestamp = Date.now()
-    res.status(201).json(data)
+    // mutar la request
+    req.body = data
+    next()
   })
+})
+
+const PORT = process.env.PORT ?? 3000
+
+app.get('/pokemon/ditto', (req, res) => {
+  res.json(ditto)
+})
+app.post('/pokemon', (req, res) => {
+  res.status(201).json(req.body)
 })
 app.use((req, res) => {
   res.status(404).send('<div>404</div>')
